@@ -8,7 +8,7 @@ export default function Card({recipe}) {
 
   // TODO
   // * complete the src-atribute on the img-tag to show the recipe picture
-  // * complete the href-attribute on the link a-tag to the proper recipe url
+  // * complete the href-attribute #top on the link a-tag to the proper recipe url
   // * update the card with information you'd find interesting about the recipe
   // * update the card styling
   
@@ -16,7 +16,7 @@ export default function Card({recipe}) {
     <div className='recipe-card'>
       <img src="" alt={recipe.label} />
       <h2>{recipe.label}</h2>
-      <a href="#" className='button'>To recipe</a>
+      <a href="#top" className='button'>To recipe</a>
     </div>
   )
 }
