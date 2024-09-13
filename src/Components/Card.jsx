@@ -16,7 +16,7 @@ export default function Card({recipe}) {
     <div className='recipe-card'>
       <img src="" alt={recipe.label} />
       <h2>{recipe.label}</h2>
-      <a href="" className='button'>To recipe</a>
+      <a href="#" className='button'>To recipe</a>
     </div>
   )
 }
