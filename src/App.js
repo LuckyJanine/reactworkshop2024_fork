@@ -3,9 +3,10 @@ import './App.css';
 import Card from './Components/Card';
 
 function App() {
-  /* TODO update with your Edamam api-id and key */
-  const APP_ID = 'YOUR_APP_ID_HERE';
-  const APP_KEY = 'YOUR_APP_KEY_HERE';
+  /* updates with your Edamam api-id and key from .env file */
+  const APP_ID = process.env.REACT_APP_ID;
+  const APP_KEY = process.env.REACT_APP_KEY;
+  console.log(process.env)
 
   /* useState to keep the state of the recipes and search in the app */
   const [foodRecipes, setFoodRecipes] = useState([]);
