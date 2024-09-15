@@ -14,9 +14,15 @@ export default function Card({recipe}) {
   
   return (
     <div className='recipe-card'>
-      <img src="" alt={recipe.label} />
-      <h2>{recipe.label}</h2>
-      <a href="#top" className='button'>To recipe</a>
-    </div>
+      <div className='car-img'>
+        <img src={recipe.image} alt={recipe.label} />
+      </div>
+      <div className='card-lbl'>
+        <h3>{recipe.label}</h3>
+      </div>
+      <div className='card-btn'>
+        <a href={recipe.url} target='_blank' className='button'>To recipe</a>
+      </div>
+      </div>
   )
 }
