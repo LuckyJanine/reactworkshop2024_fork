@@ -40,7 +40,7 @@ body {
 }
 
 /* buttons */
-.button {
+.card-btn {
   display: inline-block;
   background-color: var(--pink);
   color: var(--white);
@@ -52,7 +52,14 @@ body {
   cursor: pointer;
   position: absolute;
   bottom: 10px;
+}
+
+.recipe-btn {
   right: 10px;
+}
+
+.ingredients-btn{
+  left: 10px;
 }
 
 .button:hover {

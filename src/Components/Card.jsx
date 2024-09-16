@@ -20,8 +20,9 @@ export default function Card({recipe}) {
       <div className='card-lbl'>
         <h3>{recipe.label}</h3>
       </div>
-      <div className='card-btn'>
-        <a href={recipe.url} target='_blank' className='button'>To recipe</a>
+      <div>
+        <a href={recipe.url} target='_blank' className='card-btn recipe-btn'>To recipe</a>
+        <button className='card-btn ingredients-btn'>Ingredients</button>
       </div>
       </div>
   )
