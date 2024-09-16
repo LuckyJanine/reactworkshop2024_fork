@@ -35,6 +35,8 @@
 
 .modal-close-btn{
     background-color: #ff69b4;
+    margin-top: 10px;
+    margin-bottom: 10px;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -48,10 +50,20 @@
 .modal-close-btn:hover {
     background-color: #ff1493; /* Darker pink on hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
-  }
+}
   
 .modal-close-btn:active {
     background-color: #c71585; /* Even darker pink when clicked */
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow on click */
     transform: translateY(1px); /* Button pushes in slightly when clicked */
-    }
+}
+
+.ingredient-detail{
+    color: #c71585;
+}
+
+.icon{
+    color: #c71585;
+    margin-right: 10px;
+}
+

@@ -32,7 +32,7 @@ export default function Card({recipe}) {
         <button className='button ingredients-btn' onClick={toggleIngredientsModal}>Ingredients</button>
         {
           modal && (
-            <Ingredients ingredientLines={recipe.ingredientLines} toggleModal={toggleIngredientsModal}/>
+            <Ingredients ingredients={recipe.ingredients} toggleModal={toggleIngredientsModal}/>
           )
         }
       </div>
