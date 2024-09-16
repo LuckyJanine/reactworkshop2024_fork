@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Ingredients from './Ingredients'
 
 export default function Card({recipe}) {
@@ -12,6 +12,12 @@ export default function Card({recipe}) {
   // * complete the href-attribute #top on the link a-tag to the proper recipe url
   // * update the card with information you'd find interesting about the recipe
   // * update the card styling
+
+  const [modal, setModal] = useState(false);
+
+  const toggleIngredientsModal = () => {
+    setModal(!modal)
+  }
   
   return (
     <div className='recipe-card'>
@@ -23,7 +29,12 @@ export default function Card({recipe}) {
       </div>
       <div>
         <a href={recipe.url} target='_blank' className='button recipe-btn'>To recipe</a>
-        <button className='button ingredients-btn'>Ingredients</button>
+        <button className='button ingredients-btn' onClick={toggleIngredientsModal}>Ingredients</button>
+        {
+          modal && (
+            <Ingredients ingredientLines={recipe.ingredientLines} toggleModal={toggleIngredientsModal}/>
+          )
+        }
       </div>
       </div>
   )
