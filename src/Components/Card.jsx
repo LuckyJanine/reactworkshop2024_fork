@@ -1,4 +1,5 @@
 import React from 'react'
+import Ingredients from './Ingredients'
 
 export default function Card({recipe}) {
   // the repice prop sent from App.js is recived and deconstructed for easy use in component
@@ -21,8 +22,8 @@ export default function Card({recipe}) {
         <h3>{recipe.label}</h3>
       </div>
       <div>
-        <a href={recipe.url} target='_blank' className='card-btn recipe-btn'>To recipe</a>
-        <button className='card-btn ingredients-btn'>Ingredients</button>
+        <a href={recipe.url} target='_blank' className='button recipe-btn'>To recipe</a>
+        <button className='button ingredients-btn'>Ingredients</button>
       </div>
       </div>
   )
