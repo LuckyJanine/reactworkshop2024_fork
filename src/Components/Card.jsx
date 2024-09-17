@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Ingredients from './Ingredients'
+import './Card.css'
 
 export default function Card({recipe}) {
   // the repice prop sent from App.js is recived and deconstructed for easy use in component
