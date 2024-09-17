@@ -1,14 +1,15 @@
 /* variables to easaily changes styles */
 :root {
-  --pink: rgba(203, 115, 143, 1);
-  --pink-light: rgba(203,161,175,1);
-  --white: #ffffff;
+  /* --pink: rgba(203, 115, 143, 1); */
+  --pink-white: #fad8d9;
+  --pink-light: rgb(242, 235, 237);
+  --white: white;
   --white-transparent: #ffffff20;
 }
 
 body {
   background: var(--pink-light);
-  background: radial-gradient(circle, var(--pink-light) 0%, var(--pink) 100%);
+  background: radial-gradient(circle, var(--pink-light) 0%, var(--pink-white) 100%);
 }
 
 /* card container */

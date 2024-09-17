@@ -22,7 +22,7 @@ export default function Card({recipe}) {
   
   return (
     <div className='recipe-card'>
-      <div className='car-img'>
+      <div className='card-img'>
         <img src={recipe.image} alt={recipe.label} />
       </div>
       <div className='card-lbl'>
