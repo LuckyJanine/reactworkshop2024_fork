@@ -6,19 +6,48 @@
     object-fit: cover;
 }
 
-
-.card-lbl p {
-    text-align: left;
-    padding-top: 10px;
+.card-lbl {
+    display: flex;
+    align-items: center;
     padding-left: 15px;
 }
 
-.card-lbl h3 {
-    padding-left: 5px;
+.calories-symbol {
+    padding-top: 5px;
+    width: 35px;  
+    height: 35px; 
+    background-image: url('../../public/calories.png');  /* Path to the image */
+    background-size: contain;  /* Ensures the image fits within the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: inline-block; /* Allows setting dimensions */
+}
+
+
+.card-lbl p {
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 15px;
+}
+
+.card-front h3 {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: medium;
 }
 
 .card-symbol {
     width: 100%;
+}
+
+.ingredient-symbol {
+    margin: 20px;
+    width: 40px;  
+    height: 40px; 
+    background-image: url('../../public/ingredient.png');  /* Path to the image */
+    background-size: contain;  /* Ensures the image fits within the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    /* display: block; /* Allows setting dimensions */
+    display: inline-block;
 }
 
 .recipe-btn {

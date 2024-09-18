@@ -14,25 +14,6 @@
 }
 
  
-.card-front .ingredient-symbol {
-    margin: 20px;
-    width: 40px;  
-    height: 40px; 
-    background-image: url('../../public/ingredient.png');  /* Path to the image */
-    background-size: contain;  /* Ensures the image fits within the div */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    /* display: block; /* Allows setting dimensions */
-}
-
-.calories-symbol {
-    margin: 15px;
-    width: 40px;  
-    height: 40px; 
-    background-image: url('../../public/calories.png');  /* Path to the image */
-    background-size: contain;  /* Ensures the image fits within the div */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    display: inline-block; /* Allows setting dimensions */
-}
 
 .card-btn {
     width: 100%; 

@@ -56,4 +56,5 @@ body {
   margin-right: 1rem;
   font-size: 1rem;
   cursor: pointer;
+  border-radius: 15px;
 }
