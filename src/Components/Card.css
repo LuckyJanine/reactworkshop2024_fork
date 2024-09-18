@@ -1,19 +1,57 @@
 /* card */
-.recipe-card {
+.card {
     width: 300px;
-    height: 450px;
-    background-color: var(--white);
+    height: 470px;
+    background-color: #F0F0F0;
     border: 1px solid var(--pink);
     border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-    padding-bottom: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
     text-align: center;
     position: relative;
+    Font-family: 'Georgia', serif;
+    overflow: hidden;
+    align-items: center;
 }
-  
-.recipe-card img{
-    width: 100%;
-    height: 160px;
-    border-radius: 15px 15px 0 0; /*round top two corners*/
-    object-fit: cover;
+
+ 
+.card-front .ingredient-symbol {
+    margin: 20px;
+    width: 40px;  
+    height: 40px; 
+    background-image: url('../../public/ingredient.png');  /* Path to the image */
+    background-size: contain;  /* Ensures the image fits within the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    /* display: block; /* Allows setting dimensions */
 }
+
+.calories-symbol {
+    margin: 15px;
+    width: 40px;  
+    height: 40px; 
+    background-image: url('../../public/calories.png');  /* Path to the image */
+    background-size: contain;  /* Ensures the image fits within the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: inline-block; /* Allows setting dimensions */
+}
+
+.card-btn {
+    width: 100%; 
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #E4C6D0;
+}
+
+/* buttons */
+.button {
+    display: inline-block;
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+} 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Ingredients from './Ingredients'
+import CardFront from './CardFront'
+import CardBack from './CardBack'
 import './Card.css'
 
 export default function Card({recipe}) {
@@ -14,29 +15,29 @@ export default function Card({recipe}) {
   // * update the card with information you'd find interesting about the recipe
   // * update the card styling
 
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
 
-  const toggleIngredientsModal = () => {
-    setModal(!modal)
+  // const toggleIngredientsModal = () => {
+  //   setModal(!modal)
+  // }
+
+  const [back, setBack] = useState(false);
+  const flipCard = () => {
+    setBack(!back)
   }
   
   return (
-    <div className='recipe-card'>
-      <div className='card-img'>
-        <img src={recipe.image} alt={recipe.label} />
-      </div>
-      <div className='card-lbl'>
-        <h3>{recipe.label}</h3>
-      </div>
-      <div>
-        <a href={recipe.url} target='_blank' className='button recipe-btn'>To recipe</a>
-        <button className='button ingredients-btn' onClick={toggleIngredientsModal}>Ingredients</button>
-        {
-          modal && (
-            <Ingredients ingredients={recipe.ingredients} toggleModal={toggleIngredientsModal}/>
-          )
-        }
-      </div>
-      </div>
+    <div className='card'>
+      {
+        !back && (
+          <CardFront recipe={recipe} flipCard={flipCard}/>
+        )
+      }
+      {
+        back && (
+          <CardBack ingredients={recipe.ingredients}  flipCard={flipCard} back={back}/>
+        )
+      }
+    </div>
   )
 }

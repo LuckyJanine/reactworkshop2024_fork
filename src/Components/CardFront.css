@@ -1,0 +1,29 @@
+
+.card-front img{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px 15px 0 0; /*round top two corners*/
+    object-fit: cover;
+}
+
+
+.card-lbl p {
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.card-lbl h3 {
+    padding-left: 5px;
+}
+
+.card-symbol {
+    width: 100%;
+}
+
+.recipe-btn {
+    background-color: #a6545a;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 20px;
+}

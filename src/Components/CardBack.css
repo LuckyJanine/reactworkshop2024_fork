@@ -1,0 +1,13 @@
+.card-back {
+    
+}
+
+.ingredients-btn {
+    position: absolute;
+    /* background-color: #a6545a; */
+    background-color: rgba(166, 84, 90, 0.5);;
+    border-radius: 20px;
+    border: none;
+    bottom: 20px; 
+    transform: translateX(-50%);
+}

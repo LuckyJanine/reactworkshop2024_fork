@@ -2,6 +2,15 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './Components/Card';
 
+// TODO:
+// think about adding a modal for full ingredients list
+// how to add flip card effect
+// refactor the structure 
+// right now a bit messy
+
+// refactor search form
+// maybe use some other end points
+
 function App() {
   /* updates with your Edamam api-id and key from .env file */
   const APP_ID = process.env.REACT_APP_ID;

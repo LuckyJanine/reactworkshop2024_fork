@@ -23,29 +23,6 @@ body {
   padding: 2rem;
 }
 
-/* buttons */
-.button {
-  display: inline-block;
-  color: var(--white);
-  border: none;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
-  position: absolute;
-  bottom: 10px;
-}
-
-.recipe-btn {
-  background-color: #a6545a;
-  right: 10px;
-}
-
-.ingredients-btn{
-  background-color: #d2568c;
-  left: 10px;
-}
 
 .button:hover {
   background-color: var(--white);
@@ -67,10 +44,11 @@ body {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
+  margin-right: 5px;
 }
 
 .search-bar button {
-  background: var(--pink);
+  background: #a6545a;
   color: var(--white);
   border: none;
   padding: 0.5rem 1rem;
