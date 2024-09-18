@@ -7,9 +7,11 @@
 }
 
 .card-lbl {
+    position: relative;
     display: flex;
     align-items: center;
     padding-left: 15px;
+    cursor: pointer;
 }
 
 .calories-symbol {
@@ -20,6 +22,27 @@
     background-size: contain;  /* Ensures the image fits within the div */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     display: inline-block; /* Allows setting dimensions */
+}
+
+.calories-tooltip {
+    position: absolute;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.card-lbl:hover .calories-tooltip {
+    opacity: 1;
+    visibility: visible;
 }
 
 

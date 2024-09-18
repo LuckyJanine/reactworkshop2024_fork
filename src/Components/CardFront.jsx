@@ -13,6 +13,9 @@ const CardFront = (prop) => {
                     <span className="calories-symbol">
                     </span>
                     <p>{recipe.mealType}</p>
+                    <div className="calories-tooltip">
+                        Calories: {recipe.calories.toFixed(2)}
+                    </div>
                 </div>
                 <h3>{recipe.label}</h3>
                 <a href="javascript:void(0);" onClick={flipCard}>
