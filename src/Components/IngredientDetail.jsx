@@ -11,8 +11,10 @@ const IngredientDetail = (prop) => {
 
     return ( 
         <div onClick={toggleDetail}>
-            <span className="icon">{isExpanded ? '▼' : '▶'}</span>
-            <span>{ingredient.text}</span>
+            <div className="ingredient">
+                <span className="icon">{isExpanded ? '▼' : '▶'}</span>
+                <span>{ingredient.text}</span>
+            </div>
             {
                 isExpanded && ingredient && (
                     <div className="ingredient-detail">
