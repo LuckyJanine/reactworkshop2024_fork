@@ -2,6 +2,7 @@ import IngredientDetail from "./IngredientDetail";
 
 const IngredientsModal = (prop) => {
 
+    const recipeName = prop.recipeName;
     const ingredients = prop.ingredients;
     const viewMoreIngredients = prop.toggleModal;
 
@@ -12,6 +13,7 @@ const IngredientsModal = (prop) => {
                     <p className="modal-close" onClick={viewMoreIngredients}>
                             &times;
                     </p>
+                    <p className="recipe-name">{recipeName}</p>
                     {ingredients.map((ingredient) => (
                         <IngredientDetail ingredientDetail={ingredient}/> 
                     ))}

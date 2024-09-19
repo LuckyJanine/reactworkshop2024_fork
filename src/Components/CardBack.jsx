@@ -31,7 +31,7 @@ const CardBack = (prop) => {
             </div>
             {
                 modal && (
-                    <IngredientsModal ingredients={recipe.ingredients} toggleModal={viewMoreIngredients}/>
+                    <IngredientsModal recipeName={recipe.label} ingredients={recipe.ingredients} toggleModal={viewMoreIngredients}/>
                 )
             }
         </div>
