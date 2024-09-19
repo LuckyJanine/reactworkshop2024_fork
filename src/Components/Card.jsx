@@ -35,7 +35,7 @@ export default function Card({recipe}) {
       }
       {
         back && (
-          <CardBack ingredients={recipe.ingredients}  flipCard={flipCard} back={back}/>
+          <CardBack recipe={recipe}  flipCard={flipCard} back={back}/>
         )
       }
     </div>

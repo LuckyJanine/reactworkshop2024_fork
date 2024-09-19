@@ -1,28 +1,41 @@
+import React, {useState} from "react";
 import Ingredients from "./Ingredients";
-import "./CardBack.css"
+import IngredientsModal from "./IngredientsModal";
+import "./CardBack.css";
+import "./IngredientsModal.css";
 
 const CardBack = (prop) => {
 
-    const ingredients = prop.ingredients;
+    const recipe = prop.recipe;
     const flipCard = prop.flipCard;
     const back = prop.back; // bool
 
+    const [modal, setModal] = useState(false);
+
     const viewMoreIngredients = (event) => {
         event.stopPropagation();
-        alert("yea!");
+        setModal(!modal);
     }
 
     return ( 
-        <div className="card" onClick={flipCard}>
-            <div className="card-back">
-                {
-                    back && (
-                        <Ingredients ingredients={ingredients} flip={flipCard}/>
-                    )
-                }
-                <button className="button ingredients-btn" onClick={(event) => viewMoreIngredients(event)}>view more</button>
+        <div className="receipe-details">
+            <div className="card" onClick={flipCard}>
+                <div className="card-back">
+                    {
+                        back && (
+                            <Ingredients ingredients={recipe.ingredientLines}/>
+                        )
+                    }
+                    <button className="button ingredients-btn" onClick={(event) => viewMoreIngredients(event)}>view more</button>
+                </div>
             </div>
+            {
+                modal && (
+                    <IngredientsModal ingredients={recipe.ingredients} toggleModal={viewMoreIngredients}/>
+                )
+            }
         </div>
+        
      );
 }
  

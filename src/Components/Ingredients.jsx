@@ -9,8 +9,8 @@ const Ingredients = (props) => {
             {/* <p className="modal-close" onClick={flip}>
                     &times;
                 </p> */}
-            {ingredients.map((ingredient) => (
-                <p>{ingredient.text}</p> 
+            {ingredients && ingredients.map((ingredient) => (
+                <p>{ingredient}</p> 
             ))}
         </div>
      );

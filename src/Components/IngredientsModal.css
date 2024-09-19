@@ -1,4 +1,4 @@
-.ingrediant-modal-container{
+.ingrediant-modal-container {
     position: fixed;
     left: 0;
     top: 0;
@@ -11,7 +11,7 @@
     z-index: 9999;
 }
 
-.modal-content{
+.modal-content {
     position: relative;
     border-radius: 5px;
     background-color: white;
@@ -20,7 +20,7 @@
     margin: 0 auto;
 }
 
-.modal-close{
+.modal-close {
     position: absolute;
     top: 0px;
     right: 10px;
@@ -29,41 +29,40 @@
     margin: 0%;
 }
 
-.modal-close:hover{
+.modal-close:hover {
     color: #c71585;
 }
 
-.modal-close-btn{
-    background-color: #ff69b4;
+.modal-close-btn {
+    background-color: #a6545a;;
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 30px;
+    border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .modal-close-btn:hover {
-    background-color: #ff1493; /* Darker pink on hover */
+    background-color: #a6545a; /* Darker pink on hover */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
 }
   
 .modal-close-btn:active {
-    background-color: #c71585; /* Even darker pink when clicked */
+    background-color: #a6545a; /* Even darker pink when clicked */
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow on click */
     transform: translateY(1px); /* Button pushes in slightly when clicked */
 }
 
 .ingredient-detail{
-    color: #c71585;
+    color: #a6545a;
 }
 
-.icon{
-    color: #c71585;
+.icon {
+    color: #a6545a;
     margin-right: 10px;
 }
 
