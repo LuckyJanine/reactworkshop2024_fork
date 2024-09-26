@@ -50,7 +50,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='App'>
       <div className='search-bar'>
         <form onSubmit={searchOnSubmit}>
           <input
