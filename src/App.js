@@ -27,7 +27,7 @@ function App() {
     const getRecipesFunction = async () => {
       // Search call built with search query and your unique app-id and key.
       // this is a deprecated version - https://developer.edamam.com/edamam-docs-recipe-api-v1
-      const res = await fetch(`https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`  );
+      const response = await fetch(`https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`  );
 
       // waitxfor the respose from the api and changes it to json-format 
       const data = await response.json(); 
