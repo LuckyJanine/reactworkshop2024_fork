@@ -21,6 +21,9 @@ function App() {
   const [recipeSearch, setRecipeSearch] = useState('sprinkled donut');
   const [searchQuery, setSearchQuery] = useState('sprinkled donut');
 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   /* every time the searchQuery is changed the useEffect is called */
   useEffect(() => {
     /* fetch used to get recipes from API. */
@@ -72,6 +75,7 @@ function App() {
       <div className='recipe-container'>
         {/* the map function allows you to map out each of recipe in the array returned from the api */}
         {foodRecipes && foodRecipes?.map(item => {
+          // {console.log(item)}
           // each recipe is sent to the Card component which recives it as a prop
           return <Card recipe={item.recipe} />
         })}

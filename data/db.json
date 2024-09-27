@@ -1,4 +1,7 @@
 {
+    "_meta": {
+        "description": "This JSON file simulating api response - a deprecated one tho, recipe.id is not part of response"
+    },
     "q": "sprinkled donut",
     "from": 0,
     "to": 10,
