@@ -28,19 +28,32 @@ function App() {
   useEffect(() => {
     /* fetch used to get recipes from API. */
     const getRecipesFunction = async () => {
-      // Search call built with search query and your unique app-id and key.
-      // this is a deprecated version - https://developer.edamam.com/edamam-docs-recipe-api-v1
-      const response = await fetch(`https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`  );
+      
+      try {
+        // const response = await fetch(`http://localhost:8000/hits`); 
 
-      // const response = await fetch(`http://localhost:8000/hits`);
+        // Search call built with search query and your unique app-id and key.
+        // this is a deprecated version - https://developer.edamam.com/edamam-docs-recipe-api-v1
+        const response = await fetch(`https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`  );
 
-      // waitxfor the respose from the api and changes it to json-format 
-      const data = await response.json(); 
 
-      // update the state of the recipes shown in window
-      setFoodRecipes(data.hits);
-      setLoading(false);
-      // setFoodRecipes(data); 
+        // console.log(response);
+        if(!response.ok){
+          throw Error('could not fetch from the server ...');
+        }
+        setError(null);
+
+        const data = await response.json();
+          
+        // update the state of the recipes shown in window
+        setFoodRecipes(data.hits);
+        setLoading(false);
+        // setFoodRecipes(data); 
+      } catch (error) {
+        // console.log(error);
+        setLoading(false);
+        setError(error.message);
+      }
     };
 
     getRecipesFunction();
@@ -72,6 +85,7 @@ function App() {
               Search
           </button>
         </form>
+        {error && <div className='loading'>{ error }</div>}
         {
           loading && <div className='loading'>Loading...</div>
         }
