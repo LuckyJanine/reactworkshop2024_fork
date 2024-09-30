@@ -91,10 +91,17 @@ body {
   font-size: 15px; 
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  top: 10%;
 }
 
 #compact-view:hover .compact-view-tooltip {
   visibility: visible;
-  opacity: 1;
-  bottom: 80%;
+  opacity: 0.8;
+}
+
+.compact-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
 }

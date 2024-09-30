@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './Components/Card';
+import List from './Components/List';
 
 // TODO:
 // think about adding a modal for full ingredients list
@@ -23,6 +24,8 @@ function App() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [cardView, setCardView] = useState(true); 
 
   /* every time the searchQuery is changed the useEffect is called */
   useEffect(() => {
@@ -70,6 +73,10 @@ function App() {
     setRecipeSearch(recipeSearch);
   };
 
+  const toggleView = () => {
+    setCardView(!cardView);
+  }
+
   return (
     <div className='App'>
       <div className='search-bar'>
@@ -86,7 +93,7 @@ function App() {
           </button>
         </form>
 
-        <div id='compact-view'>
+        <div id='compact-view' onClick={toggleView}> 
           <div className='compact-view-tooltip'>
             Compact view
           </div> 
@@ -97,10 +104,17 @@ function App() {
           loading && <div className='loading'>Loading...</div>
         }
       </div>
+
+      {
+        !cardView &&
+        foodRecipes && 
+        <List recipes = {foodRecipes}/>
+      }
       
       <div className='recipe-container'>
         {/* the map function allows you to map out each of recipe in the array returned from the api */}
-        {foodRecipes && foodRecipes?.map(item => {
+        {cardView &&
+        foodRecipes && foodRecipes?.map(item => {
           // {console.log(item)}
           // each recipe is sent to the Card component which recives it as a prop
           return <Card recipe={item.recipe} />
