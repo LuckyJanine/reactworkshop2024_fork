@@ -35,6 +35,7 @@ body {
 
 /* search bar */
 .search-bar {
+  display: flex;
   background-color: var(--white-transparent);
   padding: 0.5rem 3rem;
 }
@@ -61,4 +62,39 @@ body {
 
 .loading {
   margin-top: 15px;
+}
+
+#compact-view {
+  display: flex;
+  padding: 0.5rem 1rem;
+  margin-top: 0.8rem;
+  width: 10px;  
+  height: 10px; 
+  background-image: url('../public/listview.svg');  /* Path to the image */
+  background-size: contain;  /* Ensures the image fits within the div */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  display: inline-block; /* Allows setting dimensions */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.compact-view-tooltip {
+
+  visibility: hidden;
+
+  position: absolute;
+  z-index: 1; /* Stack above other elements */
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  white-space: nowrap;
+  font-size: 15px; 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#compact-view:hover .compact-view-tooltip {
+  visibility: visible;
+  opacity: 1;
+  bottom: 80%;
 }

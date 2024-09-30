@@ -85,6 +85,13 @@ function App() {
               Search
           </button>
         </form>
+
+        <div id='compact-view'>
+          <div className='compact-view-tooltip'>
+            Compact view
+          </div> 
+        </div>
+        
         {error && <div className='loading'>{ error }</div>}
         {
           loading && <div className='loading'>Loading...</div>

@@ -26,8 +26,8 @@
 
 .calories-tooltip {
     position: absolute;
-    bottom: 125%; /* Position above the icon */
-    left: 50%;
+    bottom: 100%; /* Position above the icon */
+    left: 18%;
     transform: translateX(-50%);
     background-color: #333;
     color: #fff;
