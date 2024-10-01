@@ -101,13 +101,21 @@ function App() {
           </button>
         </form>
 
-        <div id='compact-view' onClick={toggleView}> 
-          <div className='compact-view-tooltip'>
-            Compact view
-          </div> 
-        </div>
-        
-        
+        {
+          cardView && <div className='view' id="compact-view" onClick={toggleView}> 
+            <div className='view-tooltip'>
+              Compact view
+            </div> 
+          </div>
+        }
+
+        {
+          !cardView && <div className='view' id="card-view" onClick={toggleView}> 
+            <div className='view-tooltip'>
+              Card view
+            </div> 
+          </div>
+        }
         
       </div>
 

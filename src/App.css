@@ -64,21 +64,29 @@ body {
   margin-top: 15px;
 }
 
-#compact-view {
+.view {
   position: relative;
   display: flex;
   padding: 0.5rem 1rem;
   margin-top: 0.8rem;
   width: 10px;  
   height: 10px; 
-  background-image: url('../public/listview.svg');  /* Path to the image */
+  
   background-size: contain;  /* Ensures the image fits within the div */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   display: inline-block; /* Allows setting dimensions */
   cursor: pointer; /* Change cursor to pointer */
 }
 
-.compact-view-tooltip {
+#compact-view {
+  background-image: url('../public/listview.svg');  
+}
+
+#card-view {
+  background-image: url("../public/cardview.svg");
+}
+
+.view-tooltip {
 
   visibility: hidden;
 
@@ -96,7 +104,7 @@ body {
   top: 80%;
 }
 
-#compact-view:hover .compact-view-tooltip {
+.view:hover .view-tooltip {
   visibility: visible;
   opacity: 0.8;
 }
