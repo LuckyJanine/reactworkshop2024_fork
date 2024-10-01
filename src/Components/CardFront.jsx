@@ -1,9 +1,9 @@
 import "./CardFront.css"
 
-const CardFront = (prop) => {
+const CardFront = (props) => {
 
-    const recipe = prop.recipe;
-    const flipCard = prop.flipCard;
+    const recipe = props.recipe;
+    const flipCard = props.flipCard;
 
     return ( 
         <div className="card">

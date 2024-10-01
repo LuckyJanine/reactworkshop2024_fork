@@ -8,7 +8,7 @@ const List = (prop) => {
         <div className='compact-container'>
             {recipes && recipes?.map(item => {
                 // console.log(item);
-                return <ListItem recipe={item.recipe} />
+                return <ListItem recipe={item.recipe} key={item.id}/>
             })}
         </div>
     );

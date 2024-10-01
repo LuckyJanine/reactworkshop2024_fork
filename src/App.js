@@ -3,6 +3,8 @@ import './App.css';
 import Card from './Components/Card';
 import List from './Components/List';
 
+import { v4 as uuidv4 } from 'uuid';
+
 // TODO:
 // think about adding a modal for full ingredients list
 // how to add flip card effect
@@ -47,11 +49,17 @@ function App() {
         setError(null);
 
         const data = await response.json();
+
+        const recipeWithId = data.hits.map(recipe => ({
+          ...recipe,
+          id: uuidv4() 
+        }));
           
         // update the state of the recipes shown in window
-        setFoodRecipes(data.hits);
+        setFoodRecipes(recipeWithId);
         setLoading(false);
         // setFoodRecipes(data); 
+        // console.log(recipeWithId);
       } catch (error) {
         // console.log(error);
         setLoading(false);
@@ -119,9 +127,9 @@ function App() {
         {/* the map function allows you to map out each of recipe in the array returned from the api */}
         {cardView &&
         foodRecipes && foodRecipes?.map(item => {
-          // {console.log(item)}
+          // {console.log(item.id)}
           // each recipe is sent to the Card component which recives it as a prop
-          return <Card recipe={item.recipe} />
+          return <Card recipe={item.recipe} key={item.id}/>
         })}
       </div>
     </div>
