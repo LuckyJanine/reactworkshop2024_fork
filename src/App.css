@@ -86,6 +86,14 @@ body {
   background-image: url("../public/cardview.svg");
 }
 
+#arrow-right{
+  background-image: url("../public/arrowRight.png");
+}
+
+#arrow-down{
+  background-image: url("../public/arrowDown.png");
+}
+
 .view-tooltip {
 
   visibility: hidden;

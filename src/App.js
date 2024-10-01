@@ -88,6 +88,9 @@ function App() {
   return (
     <div className='App'>
       <div className='search-bar'>
+        <div className='view' id='arrow-right'>
+
+        </div>
         <form onSubmit={searchOnSubmit}>
           <input
               type="text"
