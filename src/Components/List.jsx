@@ -7,6 +7,7 @@ const List = (prop) => {
     return ( 
         <div className='compact-container'>
             {recipes && recipes?.map(item => {
+                // console.log(item);
                 return <ListItem recipe={item.recipe} />
             })}
         </div>

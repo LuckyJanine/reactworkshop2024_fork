@@ -99,10 +99,8 @@ function App() {
           </div> 
         </div>
         
-        {error && <div className='loading'>{ error }</div>}
-        {
-          loading && <div className='loading'>Loading...</div>
-        }
+        
+        
       </div>
 
       {
@@ -112,6 +110,12 @@ function App() {
       }
       
       <div className='recipe-container'>
+
+        {error && <div className='loading'>{ error }</div>}
+        {
+          loading && <div className='loading'>Loading...</div>
+        }
+
         {/* the map function allows you to map out each of recipe in the array returned from the api */}
         {cardView &&
         foodRecipes && foodRecipes?.map(item => {
