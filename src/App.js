@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './Components/Card';
 import List from './Components/List';
+import ExcludeSearch from './Components/ExcludeSearch';
 
 import { v4 as uuidv4 } from 'uuid';
+import SearchForm from './Components/Search';
 
 // TODO:
 // think about adding a modal for full ingredients list
@@ -23,6 +25,8 @@ function App() {
   const [foodRecipes, setFoodRecipes] = useState([]);
   const [recipeSearch, setRecipeSearch] = useState('sprinkled donut');
   const [searchQuery, setSearchQuery] = useState('sprinkled donut');
+
+  const [excludeSearch, setExcludeSearch] = useState(false);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -81,28 +85,49 @@ function App() {
     setRecipeSearch(recipeSearch);
   };
 
+  const excludeSearchOnSubmit = (e) => {
+
+  }
+
   const toggleView = () => {
     setCardView(!cardView);
+  }
+
+  const toggleExcludeSearch = () => {
+    setExcludeSearch(!excludeSearch);
   }
 
   return (
     <div className='App'>
       <div className='search-bar'>
-        <div className='view' id='arrow-right'>
 
+      {
+        !excludeSearch && 
+        <div className='arrow-icon' id='arrow-right' onClick={toggleExcludeSearch}>
         </div>
-        <form onSubmit={searchOnSubmit}>
-          <input
-              type="text"
-              name="search"
-              value={recipeSearch}
-              onChange={updateSearchOnChange}
-              placeholder="Search"
+      }
+
+      {
+        excludeSearch && 
+        <div className='arrow-icon' id='arrow-down' onClick={toggleExcludeSearch}>
+        </div>
+      }
+
+        {!excludeSearch &&
+            <SearchForm 
+              recipeSearch={recipeSearch} 
+              searchOnSubmit={searchOnSubmit} 
+              updateSearchOnChange={updateSearchOnChange}
+            />
+        }
+ 
+        {
+          excludeSearch &&
+          <ExcludeSearch 
+            recipeSearch={recipeSearch}
+            excludeSearchOnSubmit={excludeSearchOnSubmit}
           />
-          <button type="submit">
-              Search
-          </button>
-        </form>
+        }
 
         {
           cardView && <div className='view' id="compact-view" onClick={toggleView}> 
