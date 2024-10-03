@@ -32,6 +32,13 @@ function App() {
 
   const [cardView, setCardView] = useState(true); 
 
+  
+  const exclusionList = ['alcohol', 'celery', 'dairy', 'fish', 
+    'gluten', 'mustard', 'peanut'];
+
+  // a list of food to be excluded for the Search
+  const [excludeFood, setExcludeFood] = useState([]);
+
   /* every time the searchQuery is changed the useEffect is called */
   useEffect(() => {
     /* fetch used to get recipes from API. */
@@ -42,8 +49,20 @@ function App() {
 
         // Search call built with search query and your unique app-id and key.
         // this is a deprecated version - https://developer.edamam.com/edamam-docs-recipe-api-v1
-        const response = await fetch(`https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`  );
+        
+        const baseUrl = `https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+        let requestUrl = baseUrl;
 
+        if(excludeFood && excludeFood.length !== 0){
+          let exclParams = "";
+          excludeFood.forEach((food) => {
+            exclParams += `&health=${food}-free`;
+          });
+
+          requestUrl = baseUrl + exclParams;
+        }
+
+        const response = await fetch(requestUrl);
 
         // console.log(response);
         if(!response.ok){
@@ -71,7 +90,9 @@ function App() {
     };
 
     getRecipesFunction();
-  }, [APP_ID, APP_KEY, searchQuery]);
+  }, [APP_ID, APP_KEY, searchQuery, excludeFood]); 
+  // !!! think about this:
+  // probably only need to send api call when click submit button?
 
   /* set the recipe search everytime there is a change in the search input */
   const updateSearchOnChange = (e) => {
@@ -82,6 +103,7 @@ function App() {
     e.preventDefault();
     setSearchQuery(recipeSearch);
     setRecipeSearch(recipeSearch);
+    setExcludeFood(excludeFood);
   };
 
 
@@ -125,8 +147,9 @@ function App() {
         {
           excludeSearch &&
           <ExcludeSearch 
-            recipeSearch={recipeSearch}
-            excludeSearchOnSubmit={searchOnSubmit}
+            exclusionList={exclusionList}
+            excludeFood={excludeFood}
+            setExcludeFood={setExcludeFood}
           />
         }
       </form>

@@ -1,17 +1,15 @@
-import { useState } from 'react';
+
 import ExcludeFood from './ExcludeFood';
 import './ExcludeSearch.css';
 
 
 // Seach with more params based on "healthLable"
 
-const ExcludeSearch = () => {
+const ExcludeSearch = (props) => {
 
-    const exclusionList = ['alcohol', 'celery', 'dairy', 'fish', 
-                            'gluten', 'mustard', 'peanut'];
-
-    // a list of food to be excluded for the Search
-    const [excludeFood, setExcludeFood] = useState([]);
+    const exclusionList = props.exclusionList;
+    const excludeFood = props.excludeFood;
+    const setExcludeFood = props.setExcludeFood;
 
     const handleCheckboxChange = (event) => {
 
