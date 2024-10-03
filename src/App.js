@@ -5,7 +5,6 @@ import List from './Components/List';
 import ExcludeSearch from './Components/ExcludeSearch';
 
 import { v4 as uuidv4 } from 'uuid';
-import SearchForm from './Components/Search';
 
 // TODO:
 // think about adding a modal for full ingredients list
@@ -85,9 +84,6 @@ function App() {
     setRecipeSearch(recipeSearch);
   };
 
-  const excludeSearchOnSubmit = (e) => {
-
-  }
 
   const toggleView = () => {
     setCardView(!cardView);
@@ -113,22 +109,28 @@ function App() {
         </div>
       }
 
-        {!excludeSearch &&
-            <SearchForm 
-              recipeSearch={recipeSearch} 
-              searchOnSubmit={searchOnSubmit} 
-              updateSearchOnChange={updateSearchOnChange}
-            />
-        }
- 
+      <form onSubmit={searchOnSubmit}>
+        <input
+            type="text"
+            name="search"
+            value={recipeSearch}
+            onChange={updateSearchOnChange}
+            placeholder="Search"
+        />
+         
+        <button type="submit">
+          Search
+        </button>
+
         {
           excludeSearch &&
           <ExcludeSearch 
             recipeSearch={recipeSearch}
-            excludeSearchOnSubmit={excludeSearchOnSubmit}
+            excludeSearchOnSubmit={searchOnSubmit}
           />
         }
-
+      </form>
+ 
         {
           cardView && <div className='view' id="compact-view" onClick={toggleView}> 
             <div className='view-tooltip'>

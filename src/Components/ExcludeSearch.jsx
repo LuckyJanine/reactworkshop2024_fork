@@ -2,14 +2,13 @@ import { useState } from 'react';
 import ExcludeFood from './ExcludeFood';
 import './ExcludeSearch.css';
 
-const ExcludeSearch = (props) => {
+
+// Seach with more params based on "healthLable"
+
+const ExcludeSearch = () => {
 
     const exclusionList = ['alcohol', 'celery', 'dairy', 'fish', 
                             'gluten', 'mustard', 'peanut'];
-
-    const recipeSearch = props.recipeSearch;
-    const updateSearchOnChange = props.updateSearchOnChange;
-    const excludeSearchOnSubmit = props.excludeSearchOnSubmit;
 
     // a list of food to be excluded for the Search
     const [excludeFood, setExcludeFood] = useState([]);
@@ -34,21 +33,6 @@ const ExcludeSearch = (props) => {
 
     return (
         <div className="exclude-search">
-          <form onSubmit={excludeSearchOnSubmit}>
-
-            <input
-              type="text"
-              name="search"
-              value={recipeSearch}
-              onChange={updateSearchOnChange}
-              placeholder="Search"
-            />
-
-            <button type="submit">
-              Let's go
-            </button>
-          </form>
-
           <label htmlFor="exclusion-list" id='lbl-exclusion-list'>
             To exclude:&nbsp;
             {excludeFood.join(', ')}
