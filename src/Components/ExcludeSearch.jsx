@@ -25,7 +25,9 @@ const ExcludeSearch = (props) => {
           return current.filter((option) => option !== value);
         } else {
           // If no, add it to the selected options
-          return [...current, value];
+          const updatedCurrent = [...current, value];
+          updatedCurrent.sort();
+          return updatedCurrent;
         }
       });
     };
