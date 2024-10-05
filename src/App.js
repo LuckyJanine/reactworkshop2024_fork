@@ -30,6 +30,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [landing, setLanding] = useState(false);
+
   const [cardView, setCardView] = useState(true); 
 
   
@@ -44,6 +46,7 @@ function App() {
   /* every time the searchQuery is changed the useEffect is called */
   useEffect(() => {
 
+    setLanding(true);
     setBaseUrl(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}`);
     
   }, [APP_ID, APP_KEY]); 
@@ -52,6 +55,7 @@ function App() {
 
   const getRecipesFunction = async () => {
 
+    setLanding(false);
     setLoading(true);
       
     try {
@@ -184,22 +188,33 @@ function App() {
         <List recipes = {foodRecipes}/>
       }
       
-      <div className='recipe-container'>
+      {landing && 
+        <div className='landing'>
+          <h1> What shall I eat? </h1>
+          <p> Just type e.x. 'salad' or 'sprinkled donut' in search bar to find recipes ... </p>
+        </div>
+      }
 
-        {error && <div className='loading'>{ error }</div>}
+      {
+        !landing &&
+          <div className='recipe-container'>
 
-        {
-          loading && <div className='loading'>Loading...</div>
-        }
+          {error && <div className='loading'>{ error }</div>}
 
-        {/* the map function allows you to map out each of recipe in the array returned from the api */}
-        {cardView &&
-        foodRecipes && foodRecipes?.map(item => {
-          // {console.log(item.id)}
-          // each recipe is sent to the Card component which recives it as a prop
-          return <Card recipe={item.recipe} key={item.id}/>
-        })}
-      </div>
+          {
+            loading && <div className='loading'>Loading...</div>
+          }
+
+          {/* the map function allows you to map out each of recipe in the array returned from the api */}
+          {cardView &&
+          foodRecipes && foodRecipes?.map(item => {
+            // {console.log(item.id)}
+            // each recipe is sent to the Card component which recives it as a prop
+            return <Card recipe={item.recipe} key={item.id}/>
+          })}
+        </div>
+      }
+      
     </div>
   );
 }

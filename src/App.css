@@ -12,6 +12,19 @@ body {
   background: radial-gradient(circle, var(--pink-light) 0%, var(--pink-white) 100%);
 }
 
+.landing {
+  margin-left: 50px;
+}
+
+.landing h1 {
+  font-size: 3rem;
+  color: #a6545a;
+}
+
+.landing p {
+  font-size: 1.5em;
+}
+
 /* card container */
 .recipe-container {
   display: flex;
