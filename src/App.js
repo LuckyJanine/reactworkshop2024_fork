@@ -20,79 +20,84 @@ function App() {
   const APP_ID = process.env.REACT_APP_ID;
   const APP_KEY = process.env.REACT_APP_KEY;
 
+  const [baseUrl, setBaseUrl] = useState('');
   /* useState to keep the state of the recipes and search in the app */
   const [foodRecipes, setFoodRecipes] = useState([]);
-  const [recipeSearch, setRecipeSearch] = useState('sprinkled donut');
-  const [searchQuery, setSearchQuery] = useState('sprinkled donut');
+  const [recipeSearch, setRecipeSearch] = useState('');
 
   const [excludeSearch, setExcludeSearch] = useState(false);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const [cardView, setCardView] = useState(true); 
 
   
-  const exclusionList = ['alcohol', 'celery', 'dairy', 'fish', 
-    'gluten', 'mustard', 'peanut'];
+  const exclusionList = ['alcohol', 'celery', 'dairy', 
+                          'fish', 'gluten', 'mustard', 
+                          'peanut'
+                        ];
 
   // a list of food to be excluded for the Search
   const [excludeFood, setExcludeFood] = useState([]);
 
   /* every time the searchQuery is changed the useEffect is called */
   useEffect(() => {
-    /* fetch used to get recipes from API. */
-    const getRecipesFunction = async () => {
-      
-      try {
-        // const response = await fetch(`http://localhost:8000/hits`); 
 
-        // Search call built with search query and your unique app-id and key.
-        // this is a deprecated version - https://developer.edamam.com/edamam-docs-recipe-api-v1
-        
-        const baseUrl = `https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`;
-        let requestUrl = baseUrl;
-
-        if(excludeFood && excludeFood.length !== 0){
-          let exclParams = "";
-          excludeFood.forEach((food) => {
-            exclParams += `&health=${food}-free`;
-          });
-
-          requestUrl = baseUrl + exclParams;
-        }
-
-        const response = await fetch(requestUrl);
-
-        // console.log(response);
-        if(!response.ok){
-          throw Error('could not fetch from the server ...');
-        }
-        setError(null);
-
-        const data = await response.json();
-
-        const recipeWithId = data.hits.map(recipe => ({
-          ...recipe,
-          id: uuidv4() 
-        }));
-          
-        // update the state of the recipes shown in window
-        setFoodRecipes(recipeWithId);
-        setLoading(false);
-        // setFoodRecipes(data); 
-        // console.log(recipeWithId);
-      } catch (error) {
-        // console.log(error);
-        setLoading(false);
-        setError(error.message);
-      }
-    };
-
-    getRecipesFunction();
-  }, [APP_ID, APP_KEY, searchQuery, excludeFood]); 
+    setBaseUrl(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}`);
+    
+  }, [APP_ID, APP_KEY]); 
   // !!! think about this:
   // probably only need to send api call when click submit button?
+
+  const getRecipesFunction = async () => {
+
+    setLoading(true);
+      
+    try {
+      // const response = await fetch(`http://localhost:8000/hits`); 
+
+      // Search call built with search query and your unique app-id and key.
+      // this is a deprecated version - https://developer.edamam.com/edamam-docs-recipe-api-v1
+      
+      // const baseUrl = `https://api.edamam.com/search?q=${recipeSearch}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+      let requestUrl = `${baseUrl}&q=${recipeSearch}`;
+
+      if(excludeFood && excludeFood.length !== 0){
+        let exclParams = "";
+        excludeFood.forEach((food) => {
+          exclParams += `&health=${food}-free`;
+        });
+
+        requestUrl = requestUrl + exclParams;
+      }
+
+      const response = await fetch(requestUrl);
+
+      // console.log(response);
+      if(!response.ok){
+        throw Error('could not fetch from the server ...');
+      }
+      setError(null);
+
+      const data = await response.json();
+
+      const recipeWithId = data.hits.map(recipe => ({
+        ...recipe,
+        id: uuidv4() 
+      }));
+        
+      // update the state of the recipes shown in window
+      setFoodRecipes(recipeWithId);
+      setLoading(false);
+      // setFoodRecipes(data); 
+      // console.log(recipeWithId);
+    } catch (error) {
+      // console.log(error);
+      setLoading(false);
+      setError(error.message);
+    }
+  };
 
   /* set the recipe search everytime there is a change in the search input */
   const updateSearchOnChange = (e) => {
@@ -101,9 +106,10 @@ function App() {
 
   const searchOnSubmit = (e) => {
     e.preventDefault();
-    setSearchQuery(recipeSearch);
     setRecipeSearch(recipeSearch);
     setExcludeFood(excludeFood);
+
+    getRecipesFunction();
   };
 
 
@@ -181,6 +187,7 @@ function App() {
       <div className='recipe-container'>
 
         {error && <div className='loading'>{ error }</div>}
+
         {
           loading && <div className='loading'>Loading...</div>
         }
