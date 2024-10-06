@@ -24,6 +24,7 @@ function App() {
   /* useState to keep the state of the recipes and search in the app */
   const [foodRecipes, setFoodRecipes] = useState([]);
   const [recipeSearch, setRecipeSearch] = useState('');
+  const [noResult, setNoResult] = useState(false);
 
   const [excludeSearch, setExcludeSearch] = useState(false);
 
@@ -56,6 +57,7 @@ function App() {
   const getRecipesFunction = async () => {
 
     setLanding(false);
+    setNoResult(false);
     setLoading(true);
       
     try {
@@ -85,6 +87,10 @@ function App() {
       setError(null);
 
       const data = await response.json();
+
+      if(response.ok && data.hits.length === 0){
+        setNoResult(true);
+      }
 
       const recipeWithId = data.hits.map(recipe => ({
         ...recipe,
@@ -203,6 +209,11 @@ function App() {
 
           {
             loading && <div className='loading'>Loading...</div>
+          }
+
+          {
+            noResult &&
+            <div className='loading'> Ooops couldn't find any ...</div>
           }
 
           {/* the map function allows you to map out each of recipe in the array returned from the api */}
