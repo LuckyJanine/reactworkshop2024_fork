@@ -5,7 +5,7 @@ import List from './Components/List';
 
 
 import { v4 as uuidv4 } from 'uuid';
-import Header from './Components/Header';
+import Header from './Components/Header/Header';
 
 // TODO:
 // think about adding a modal for full ingredients list
@@ -158,33 +158,40 @@ function App() {
 
       {
         !landing &&
+        <div>
+          <div className='loading'>
+            {
+              error && <div>{ error }</div>
+            }
+
+            {
+              loading && <div>Loading...</div>
+            }
+
+            {
+              noResult &&
+              <div> Ooops couldn't find any ...</div>
+            }
+          </div>
+
           <div className='recipe-container'>
 
-          {error && <div className='loading'>{ error }</div>}
+            {/* the map function allows you to map out each of recipe in the array returned from the api */}
+            { cardView &&
+              foodRecipes && foodRecipes?.map(item => {
+              // {console.log(item.id)}
+              // each recipe is sent to the Card component which recives it as a prop
+              return <Card recipe={item.recipe} key={item.id}/>
+            })}
 
-          {
-            loading && <div className='loading'>Loading...</div>
-          }
-
-          {
-            noResult &&
-            <div className='loading'> Ooops couldn't find any ...</div>
-          }
-
-          {/* the map function allows you to map out each of recipe in the array returned from the api */}
-          { cardView &&
-            foodRecipes && foodRecipes?.map(item => {
-            // {console.log(item.id)}
-            // each recipe is sent to the Card component which recives it as a prop
-            return <Card recipe={item.recipe} key={item.id}/>
-          })}
-
-          {
-            !cardView &&
-            foodRecipes && 
-            <List recipes = {foodRecipes}/>
-          }
+            {
+              !cardView &&
+              foodRecipes && 
+              <List recipes = {foodRecipes}/>
+            }
+          </div>
         </div>
+          
       }
       
     </div>

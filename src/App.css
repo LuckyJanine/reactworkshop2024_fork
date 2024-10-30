@@ -76,6 +76,9 @@ body {
 
 .loading {
   margin-top: 15px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
 }
 
 .view {
