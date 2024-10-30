@@ -35,6 +35,12 @@ function App() {
 
   const [cardView, setCardView] = useState(true); 
 
+  const landingPage = (
+    <div className='landing'>
+          <h1> What shall I eat? </h1>
+          <p> Just type e.x. 'salad' or 'sprinkled donut' in search bar to find recipes ... </p>
+    </div>
+  )
   
   const exclusionList = ['alcohol', 'celery', 'dairy', 
                           'fish', 'gluten', 'mustard', 
@@ -194,12 +200,7 @@ function App() {
         <List recipes = {foodRecipes}/>
       }
       
-      {landing && 
-        <div className='landing'>
-          <h1> What shall I eat? </h1>
-          <p> Just type e.x. 'salad' or 'sprinkled donut' in search bar to find recipes ... </p>
-        </div>
-      }
+      { landing && landingPage }
 
       {
         !landing &&
