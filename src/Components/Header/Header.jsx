@@ -1,4 +1,5 @@
 import ExcludeSearch from './ExcludeSearch';
+import Sort from './Sort';
 
 const Header = (props) => {
 
@@ -51,6 +52,8 @@ const Header = (props) => {
                         />
                     }
                 </form>
+
+                <Sort />
 
                 {
                     cardView && <div className='view' id="compact-view" onClick={toggleView}> 

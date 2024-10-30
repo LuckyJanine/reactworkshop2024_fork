@@ -1,0 +1,36 @@
+.sort-container{
+    margin-top: 10px;
+    display: grid;
+    align-items: center;
+    margin-left: auto;
+}
+
+.sort-section label {
+    font-weight: bold;
+    color: #a6545a;
+    margin-right: 10px;
+}
+
+.sort-dropdown {
+    padding: 12px 16px;                /* Increases padding for a bigger dropdown */
+    font-size: 0.7em;                  /* Increases font size for readability */
+    border: 2px solid #a6545a;         /* Adds a thicker, more defined border */
+    border-radius: 8px;                /* Makes corners more rounded */
+    background-color: #fffafa;         /* Subtle background color for contrast */
+    color: #333;                       /* Sets text color */
+    cursor: pointer;
+    transition: all 0.3s ease;         /* Smooth transition for hover effects */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+  
+  /* Focus effect */
+  .sort-dropdown:focus {
+    outline: none;
+    border-color: #a6545a;            /* Darkens border on focus */
+    box-shadow: 0 4px 8px #fffafa; /* Enhances shadow on focus */
+}
+  
+  /* Hover effect */
+  .sort-dropdown:hover {
+    background-color: #fff0f3;        /* Slightly lighter background on hover */
+}

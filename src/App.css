@@ -84,7 +84,7 @@ body {
 .view {
   position: relative;
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 0.9rem;
   margin-top: 0.8rem;
   width: 10px;  
   height: 10px; 
@@ -94,7 +94,7 @@ body {
   display: inline-block; /* Allows setting dimensions */
   cursor: pointer; /* Change cursor to pointer */
 
-  margin-left: auto;
+  margin-left: 35px;
 }
 
 .arrow-icon {
