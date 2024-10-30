@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './Components/Card';
 import List from './Components/List';
-import ExcludeSearch from './Components/ExcludeSearch';
+
 
 import { v4 as uuidv4 } from 'uuid';
+import Header from './Components/Header';
 
 // TODO:
 // think about adding a modal for full ingredients list
@@ -139,68 +140,21 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='search-bar'>
 
-      {
-        !excludeSearch && 
-        <div className='arrow-icon' id='arrow-right' onClick={toggleExcludeSearch}>
-        </div>
-      }
-
-      {
-        excludeSearch && 
-        <div className='arrow-icon' id='arrow-down' onClick={toggleExcludeSearch}>
-        </div>
-      }
-
-      <form onSubmit={searchOnSubmit}>
-        <input
-            type="text"
-            name="search"
-            value={recipeSearch}
-            onChange={updateSearchOnChange}
-            placeholder="Search"
-        />
-         
-        <button type="submit">
-          Search
-        </button>
-
-        {
-          excludeSearch &&
-          <ExcludeSearch 
-            exclusionList={exclusionList}
-            excludeFood={excludeFood}
-            setExcludeFood={setExcludeFood}
-          />
-        }
-      </form>
- 
-        {
-          cardView && <div className='view' id="compact-view" onClick={toggleView}> 
-            <div className='view-tooltip'>
-              Compact view
-            </div> 
-          </div>
-        }
-
-        {
-          !cardView && <div className='view' id="card-view" onClick={toggleView}> 
-            <div className='view-tooltip'>
-              Card view
-            </div> 
-          </div>
-        }
-        
-      </div>
-
-      {
-        !cardView &&
-        foodRecipes && 
-        <List recipes = {foodRecipes}/>
-      }
+      <Header 
+        toggleExcludeSearch = {toggleExcludeSearch}
+        toggleView = {toggleView}
+        cardView = {cardView}
+        searchOnSubmit = {searchOnSubmit}
+        recipeSearch = {recipeSearch}
+        updateSearchOnChange = {updateSearchOnChange}
+        exclusionList = {exclusionList}
+        excludeFood = {excludeFood}
+        setExcludeFood = {setExcludeFood}
+        excludeSearch = {excludeSearch}
+      />
       
-      { landing && landingPage }
+      { landing && landingPage } 
 
       {
         !landing &&
@@ -218,12 +172,18 @@ function App() {
           }
 
           {/* the map function allows you to map out each of recipe in the array returned from the api */}
-          {cardView &&
-          foodRecipes && foodRecipes?.map(item => {
+          { cardView &&
+            foodRecipes && foodRecipes?.map(item => {
             // {console.log(item.id)}
             // each recipe is sent to the Card component which recives it as a prop
             return <Card recipe={item.recipe} key={item.id}/>
           })}
+
+          {
+            !cardView &&
+            foodRecipes && 
+            <List recipes = {foodRecipes}/>
+          }
         </div>
       }
       
