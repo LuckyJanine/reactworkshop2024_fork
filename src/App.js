@@ -3,8 +3,6 @@ import './App.css';
 import Card from './Components/Card';
 import List from './Components/List';
 
-
-import { v4 as uuidv4 } from 'uuid';
 import Header from './Components/Header/Header';
 
 // TODO:
@@ -99,9 +97,10 @@ function App() {
         setNoResult(true);
       }
 
-      const recipeWithId = data.hits.map(recipe => ({
+      const recipeWithId = data.hits.map((recipe, i) => ({
         ...recipe,
-        id: uuidv4() 
+        index: i,
+        numOfIngredients: recipe.recipe.ingredientLines.length
       }));
         
       // update the state of the recipes shown in window
@@ -125,7 +124,6 @@ function App() {
     e.preventDefault();
     setRecipeSearch(recipeSearch);
     setExcludeFood(excludeFood);
-
     getRecipesFunction();
   };
 
@@ -136,6 +134,29 @@ function App() {
 
   const toggleExcludeSearch = () => {
     setExcludeSearch(!excludeSearch);
+  }
+
+  const handleSortChange = (event) => {
+
+    const sort = event.target.value;
+
+    const sortedRecipes = [...foodRecipes];
+
+    // console.log(sort);
+
+    switch (sort) {
+      case "caloriesLow":
+        sortedRecipes.sort((a, b) => a.recipe.calories - b.recipe.calories);
+        break;
+      case "ingredientsLess":
+        sortedRecipes.sort((a, b) => a.numOfIngredients - b.numOfIngredients);
+        break;
+      default:
+        sortedRecipes.sort((a, b) => a.index - b.index);
+        break;
+    }
+    setFoodRecipes(sortedRecipes);
+    // console.log(sortedRecipes);
   }
 
   return (
@@ -152,6 +173,7 @@ function App() {
         excludeFood = {excludeFood}
         setExcludeFood = {setExcludeFood}
         excludeSearch = {excludeSearch}
+        handleSortChange = {handleSortChange}
       />
       
       { landing && landingPage } 

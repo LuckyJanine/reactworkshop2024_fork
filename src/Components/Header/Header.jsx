@@ -13,6 +13,7 @@ const Header = (props) => {
     const excludeFood = props.excludeFood;
     const setExcludeFood = props.setExcludeFood;
     const excludeSearch = props.excludeSearch;
+    const handleSortChange = props.handleSortChange;
 
 
     return (
@@ -53,7 +54,7 @@ const Header = (props) => {
                     }
                 </form>
 
-                <Sort />
+                <Sort handleSortChange = {handleSortChange}/>
 
                 {
                     cardView && <div className='view' id="compact-view" onClick={toggleView}> 
