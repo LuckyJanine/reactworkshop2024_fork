@@ -11,7 +11,7 @@
     z-index: 9999;
 }
 
-.modal-content {
+.modal--content {
     position: relative;
     border-radius: 5px;
     background-color: white;
@@ -20,7 +20,7 @@
     margin: 0 auto;
 }
 
-.modal-close {
+.modal--close {
     position: absolute;
     top: 0px;
     right: 10px;
@@ -29,7 +29,7 @@
     margin: 0%;
 }
 
-.modal-close:hover {
+.modal--close:hover {
     color: #c71585;
 }
 
@@ -57,7 +57,7 @@
     transform: translateY(1px); /* Button pushes in slightly when clicked */
 }
 
-.ingredient-detail{
+.ingredient--detail{
     color: #a6545a;
 }
 
@@ -70,6 +70,6 @@
     margin-top: 10px;
 }
 
-.recipe-name {
+.recipe--name {
     font-weight: bold;
 }

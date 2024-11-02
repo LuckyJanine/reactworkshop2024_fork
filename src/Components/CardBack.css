@@ -1,9 +1,9 @@
 
-.ingrediant-container {
+.ingrediant--container {
     padding: 5px;
 }
 
-.ingredients-btn {
+.ingredients--btn {
     position: absolute;
     /* background-color: #a6545a; */
     background-color: rgba(166, 84, 90, 0.5);;

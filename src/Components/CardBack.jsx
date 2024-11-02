@@ -18,15 +18,15 @@ const CardBack = (prop) => {
     }
 
     return ( 
-        <div className="receipe-details">
+        <div className="receipe--details">
             <div className="card" onClick={flipCard}>
-                <div className="card-back">
+                <div className="card--back">
                     {
                         back && (
                             <Ingredients ingredients={recipe.ingredientLines}/>
                         )
                     }
-                    <button className="button ingredients-btn" onClick={(event) => viewMoreIngredients(event)}>view more</button>
+                    <button className="button ingredients--btn" onClick={(event) => viewMoreIngredients(event)}>view more</button>
                 </div>
             </div>
             {

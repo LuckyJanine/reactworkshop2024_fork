@@ -7,7 +7,7 @@ const ExcludeFood = (props) => {
     const handleCheckboxChange = props.handleCheckboxChange;
 
     return ( 
-        <div className="exclude-food">
+        <div className="exclude--food">
             <input 
               type="checkbox" 
               id={`${food}-free`}

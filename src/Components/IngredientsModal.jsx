@@ -8,12 +8,12 @@ const IngredientsModal = (prop) => {
 
     return ( 
         <div className="ingrediant-modal-container">
-            <div className="modal-content">
-                <div className="ingrediant-container">
-                    <p className="modal-close" onClick={viewMoreIngredients}>
+            <div className="modal--content">
+                <div className="ingrediant--container">
+                    <p className="modal--close" onClick={viewMoreIngredients}>
                             &times;
                     </p>
-                    <p className="recipe-name">{recipeName}</p>
+                    <p className="recipe--name">{recipeName}</p>
                     {ingredients.map((ingredient) => (
                         <IngredientDetail ingredientDetail={ingredient}/> 
                     ))}

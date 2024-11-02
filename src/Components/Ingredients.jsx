@@ -5,8 +5,8 @@ const Ingredients = (props) => {
     const ingredients = props.ingredients;
 
     return ( 
-        <div className="ingrediant-container">
-            {/* <p className="modal-close" onClick={flip}>
+        <div className="ingrediant--container">
+            {/* <p className="modal--close" onClick={flip}>
                     &times;
                 </p> */}
             {ingredients && ingredients.map((ingredient) => (

@@ -17,7 +17,7 @@ const IngredientDetail = (prop) => {
             </div>
             {
                 isExpanded && ingredient && (
-                    <div className="ingredient-detail">
+                    <div className="ingredient--detail">
                         <p>weight: {ingredient.weight.toFixed(3)}</p>
                         <p>food category: {ingredient.foodCategory}</p>
                     </div>

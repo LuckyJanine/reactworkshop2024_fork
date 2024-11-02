@@ -57,7 +57,7 @@ const Header = (props) => {
                 <Sort handleSortChange = {handleSortChange}/>
 
                 {
-                    cardView && <div className='view' id="compact-view" onClick={toggleView}> 
+                    cardView && <div className='view' id="compact--view" onClick={toggleView}> 
                         <div className='view--tooltip'>
                             Compact view
                         </div> 
@@ -65,7 +65,7 @@ const Header = (props) => {
                 }
 
                 {
-                    !cardView && <div className='view' id="card-view" onClick={toggleView}> 
+                    !cardView && <div className='view' id="card--view" onClick={toggleView}> 
                         <div className='view--tooltip'>
                             Card view
                         </div> 

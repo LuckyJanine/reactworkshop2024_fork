@@ -196,7 +196,7 @@ function App() {
             }
           </div>
 
-          <div className='recipe-container'>
+          <div className='recipe--container'>
 
             {/* the map function allows you to map out each of recipe in the array returned from the api */}
             { cardView &&

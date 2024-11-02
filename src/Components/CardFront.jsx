@@ -25,7 +25,7 @@ const CardFront = (props) => {
                 
                 <div className="card--btn">
                     <a href={recipe.url} target='_blank' className='button recipe--btn'>To recipe</a>
-                    {/* <button className='button ingredients-btn' onClick={toggleIngredientsModal}>Ingredients</button>
+                    {/* <button className='button ingredients--btn' onClick={toggleIngredientsModal}>Ingredients</button>
                     {
                         modal && (
                         <Ingredients ingredients={recipe.ingredients} toggleModal={toggleIngredientsModal}/>
