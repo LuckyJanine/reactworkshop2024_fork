@@ -1,16 +1,16 @@
-.sort-container{
+.sort--container{
     margin-top: 10px;
     display: grid;
     margin-left: auto;
 }
 
-.sort-section label {
+.sort--section label {
     font-weight: bold;
     color: #a6545a;
     margin-right: 10px;
 }
 
-.sort-dropdown {
+.sort--dropdown {
     padding: 8px 12px;                
     font-size: 0.9em;                  
     border: 2px solid #a6545a;         
@@ -24,13 +24,13 @@
 }
   
   /* Focus effect */
-  .sort-dropdown:focus {
+  .sort--dropdown:focus {
     outline: none;
     border-color: #a6545a;            
     box-shadow: 0 4px 8px #fffafa; 
 }
   
   /* Hover effect */
-  .sort-dropdown:hover {
+  .sort--dropdown:hover {
     background-color: #fff0f3;        
 }

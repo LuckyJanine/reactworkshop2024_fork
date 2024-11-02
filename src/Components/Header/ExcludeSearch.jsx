@@ -30,13 +30,13 @@ const ExcludeSearch = (props) => {
     };
 
     return (
-        <div className="exclude-search">
-          <label htmlFor="exclusion-list" id='lbl-exclusion-list'>
+        <div className="exclude--search">
+          <label htmlFor="exclusion--list" id='lbl-exclusion--list'>
             To exclude:&nbsp;
             {excludeFood.join(', ')}
           </label>
 
-          <div className="exclusion-list">
+          <div className="exclusion--list">
             {exclusionList &&
               exclusionList?.map(item => {
                 return <ExcludeFood

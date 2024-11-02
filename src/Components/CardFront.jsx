@@ -7,24 +7,24 @@ const CardFront = (props) => {
 
     return ( 
         <div className="card">
-            <div className="card-front">
+            <div className="card--front">
                 <img src={recipe.image} alt={recipe.label} />
-                <div className='card-lbl'>
-                    <span className="calories-symbol">
+                <div className='card--lbl'>
+                    <span className="calories--symbol">
                     </span>
                     <p>{recipe.mealType}</p>
-                    <div className="calories-tooltip">
+                    <div className="calories--tooltip">
                         Calories: {recipe.calories.toFixed(2)}
                     </div>
                 </div>
                 <h3>{recipe.label}</h3>
                 <a href="javascript:void(0);" onClick={flipCard}>
-                    <div className="ingredient-symbol">
+                    <div className="ingredient--symbol">
                     </div>
                 </a>
                 
-                <div className="card-btn">
-                    <a href={recipe.url} target='_blank' className='button recipe-btn'>To recipe</a>
+                <div className="card--btn">
+                    <a href={recipe.url} target='_blank' className='button recipe--btn'>To recipe</a>
                     {/* <button className='button ingredients-btn' onClick={toggleIngredientsModal}>Ingredients</button>
                     {
                         modal && (

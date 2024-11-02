@@ -18,16 +18,16 @@ const Header = (props) => {
 
     return (
         <div>
-            <div className='search-bar'>
+            <div className='search--bar'>
                 {
                     !excludeSearch && 
-                    <div className='arrow-icon' id='arrow-right' onClick={toggleExcludeSearch}>
+                    <div className='arrow--icon' id='arrow-right' onClick={toggleExcludeSearch}>
                     </div>
                 }
 
                 {
                     excludeSearch && 
-                    <div className='arrow-icon' id='arrow-down' onClick={toggleExcludeSearch}>
+                    <div className='arrow--icon' id='arrow-down' onClick={toggleExcludeSearch}>
                     </div>
                 }
 
@@ -58,7 +58,7 @@ const Header = (props) => {
 
                 {
                     cardView && <div className='view' id="compact-view" onClick={toggleView}> 
-                        <div className='view-tooltip'>
+                        <div className='view--tooltip'>
                             Compact view
                         </div> 
                     </div>
@@ -66,7 +66,7 @@ const Header = (props) => {
 
                 {
                     !cardView && <div className='view' id="card-view" onClick={toggleView}> 
-                        <div className='view-tooltip'>
+                        <div className='view--tooltip'>
                             Card view
                         </div> 
                     </div>
