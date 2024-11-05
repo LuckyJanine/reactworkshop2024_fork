@@ -1,5 +1,7 @@
 import ExcludeSearch from './ExcludeSearch';
 import Sort from './Sort';
+import Filter from './Filter';
+import './Header.css';
 
 const Header = (props) => {
 
@@ -7,70 +9,66 @@ const Header = (props) => {
     const toggleView = props.toggleView;
     const cardView = props.cardView;
     const searchOnSubmit = props.searchOnSubmit;
-    const recipeSearch = props.recipeSearch;
+    const recipeSearch = props.recipeSearch; 
+    // "Controlled Component" value={formData.firstName} 
+    // let React in driver sit rather than input
     const updateSearchOnChange = props.updateSearchOnChange;
     const exclusionList = props.exclusionList; 
     const excludeFood = props.excludeFood;
     const setExcludeFood = props.setExcludeFood;
     const excludeSearch = props.excludeSearch;
     const handleSortChange = props.handleSortChange;
+    const handleFilterChange = props.handleFilterChange;
 
+    const iconId = excludeSearch ? "arrow-down" : "arrow-right";
+
+    const viewId = cardView ? "compact--view" : "card--view";
+    const viewMode = cardView ? "Compact view" : "Card view";
 
     return (
         <div>
             <div className='search--bar'>
-                {
-                    !excludeSearch && 
-                    <div className='arrow--icon' id='arrow-right' onClick={toggleExcludeSearch}>
-                    </div>
-                }
 
-                {
-                    excludeSearch && 
-                    <div className='arrow--icon' id='arrow-down' onClick={toggleExcludeSearch}>
-                    </div>
-                }
+                <div className='arrow--icon' id={iconId} onClick={toggleExcludeSearch}>
+                </div>  
 
-                <form onSubmit={searchOnSubmit}>
-                    <input
-                        type="text"
-                        name="search"
-                        value={recipeSearch}
-                        onChange={updateSearchOnChange}
-                        placeholder="Search"
-                    />
-                    
-                    <button type="submit">
-                        Search
-                    </button>
-
-                    {
-                        excludeSearch &&
-                        <ExcludeSearch 
-                            exclusionList={exclusionList}
-                            excludeFood={excludeFood}
-                            setExcludeFood={setExcludeFood}
+                <div className="header-main-container" id='search--form'>
+                    <form onSubmit={searchOnSubmit}>
+                        <input
+                            type="text"
+                            name="search"
+                            value={recipeSearch}
+                            onChange={updateSearchOnChange}
+                            placeholder="Search"
                         />
-                    }
-                </form>
+                        
+                        <button type="submit">
+                            Search
+                        </button>
 
-                <Sort handleSortChange = {handleSortChange}/>
+                        {
+                            excludeSearch &&
+                                <div>
+                                    <ExcludeSearch 
+                                    exclusionList={exclusionList}
+                                    excludeFood={excludeFood}
+                                    setExcludeFood={setExcludeFood}
+                                />
+                            </div>
+                        }
+                    </form>
 
-                {
-                    cardView && <div className='view' id="compact--view" onClick={toggleView}> 
-                        <div className='view--tooltip'>
-                            Compact view
-                        </div> 
+                    <div className="sort-filter-container">
+                        <Sort handleSortChange = {handleSortChange}/>
+                        <Filter handleFilterChange = {handleFilterChange}/>
                     </div>
-                }
+                </div>
 
-                {
-                    !cardView && <div className='view' id="card--view" onClick={toggleView}> 
-                        <div className='view--tooltip'>
-                            Card view
-                        </div> 
+                <div className="view" id={viewId} onClick={toggleView}>
+                    <div className='view--tooltip'>
+                        {viewMode}
                     </div>
-                }
+                </div>
             </div>
         </div>
     );

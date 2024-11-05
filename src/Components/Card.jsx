@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import CardFront from './CardFront'
 import CardBack from './CardBack'
 import './Card.css'

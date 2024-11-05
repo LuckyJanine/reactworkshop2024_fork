@@ -1,6 +1,8 @@
 .sort--container{
-    margin-top: 10px;
-    display: grid;
+    /* margin-top: 5px;
+    display: grid; */
+    display: block;
+    margin-top: 0em;
     margin-left: auto;
 }
 

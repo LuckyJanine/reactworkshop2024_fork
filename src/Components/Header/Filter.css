@@ -1,0 +1,25 @@
+.filter--section{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.filter--section label {
+    font-weight: bold;
+    color: #a6545a;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.filter--dropdown {
+    padding: 6px 8px;                
+    font-size: 0.8em;                  
+    border: 2px solid #a6545a;         
+    border-radius: 8px;                
+    background-color: #fffafa;         
+    
+    color: #333;                       
+    cursor: pointer;
+    transition: all 0.3s ease;         
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}

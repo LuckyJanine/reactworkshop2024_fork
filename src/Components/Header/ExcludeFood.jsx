@@ -10,7 +10,7 @@ const ExcludeFood = (props) => {
         <div className="exclude--food">
             <input 
               type="checkbox" 
-              id={`${food}-free`}
+              id={`${food}-free`} // change to select box?? 8hrs20ims
               value={food}
               checked={excludeFood.includes(`${food}`)}
               onChange={handleCheckboxChange}

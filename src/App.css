@@ -46,33 +46,6 @@ body {
   transition-duration: 0.4s;
 }
 
-/* search bar */
-.search--bar {
-  display: flex;
-  background-color: var(--white-transparent);
-  padding: 0.5rem 3rem;
-}
-
-.search--bar input[type=text] {
-  border: none;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  margin-right: 5px;
-}
-
-.search--bar button {
-  background: #a6545a;
-  color: var(--white);
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 15px;
-}
 
 .loading {
   margin-top: 15px;
@@ -81,51 +54,6 @@ body {
   justify-content: center;
 }
 
-.view {
-  position: relative;
-  display: flex;
-  padding: 0.6rem 0.9rem;
-  margin-top: 0.8rem;
-  width: 10px;  
-  height: 10px; 
-  
-  background-size: contain;  /* Ensures the image fits within the div */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  display: inline-block; /* Allows setting dimensions */
-  cursor: pointer; /* Change cursor to pointer */
-
-  margin-left: 35px;
-}
-
-.arrow--icon {
-  position: relative;
-  display: flex;
-  padding: 0.5rem 1rem;
-  margin-top: 0.8rem;
-  width: 10px;  
-  height: 10px; 
-  
-  background-size: contain;  /* Ensures the image fits within the div */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  display: inline-block; /* Allows setting dimensions */
-  cursor: pointer; /* Change cursor to pointer */
-}
-
-#compact--view {
-  background-image: url('../public/listview.svg');  
-}
-
-#card--view {
-  background-image: url("../public/cardview.svg");
-}
-
-#arrow-right{
-  background-image: url("../public/arrowRight.png");
-}
-
-#arrow-down{
-  background-image: url("../public/arrowDown.png");
-}
 
 .view--tooltip {
 

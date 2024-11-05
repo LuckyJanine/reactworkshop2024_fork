@@ -7,7 +7,7 @@ const Sort = (props) => {
     return (
         <div className="sort--container">
             <div className="sort--section">
-            <label htmlFor="sort">Sort by:</label>
+            <label htmlFor="sort">Sort by&nbsp;:</label>
             <select id="sort" className="sort--dropdown" onChange={handleSortChange}>
                 <option value="default">Default</option>
                 <option value="caloriesLow">Calories: Low to High</option>
