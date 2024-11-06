@@ -198,7 +198,7 @@ function App() {
 
     const sort = event.target.value;
 
-    const sortedRecipes = [...foodRecipes];
+    let sortedRecipes = [...foodRecipes];
 
     // console.log(sort);
 
@@ -216,8 +216,31 @@ function App() {
     setFoodRecipes(sortedRecipes);
   }
 
-  const handleFilterChange = () => {
-    
+  const handleFilterChange = (event) => {
+
+    const filtermode = event.target.value;
+
+    let filteredRecipes = [...defaultFoodRecipes];
+    // console.log(filteredRecipes);
+
+    switch(filtermode){
+      case "breakfast":
+        filteredRecipes = filteredRecipes.filter(recipe => recipe.recipe.mealType.includes("breakfast"));
+        break;
+      case "lunchdinner":
+        filteredRecipes = filteredRecipes.filter(recipe => recipe.recipe.mealType.includes("lunch/dinner"));
+        break;
+      case "snack":
+        filteredRecipes = filteredRecipes.filter(recipe => recipe.recipe.mealType.includes("snack"));
+        break;
+      case "teatime":
+        filteredRecipes = filteredRecipes.filter(recipe => recipe.recipe.mealType.includes("teatime"));
+        break;
+      default:
+        break; 
+    }
+    setFoodRecipes(filteredRecipes);
+    // console.log(filteredRecipes);
   }
 
   return (

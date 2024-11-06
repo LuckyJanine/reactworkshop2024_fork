@@ -8,7 +8,9 @@ const Filter = (props) => {
                 <select id="filter" className="filter--dropdown" onChange={props.handleFilterChange}>
                 <option value="none">None</option>
                 <option value="breakfast">Breakfast</option>
-                <option value="lunchdinner">Lunch&#47;Dinner</option>
+                <option value="lunchdinner">Lunch&nbsp;&#124;&nbsp;Dinner</option>
+                <option value="snack">Snack</option>
+                <option value="teatime">Teatime</option>
             </select>
             </div>
         </div>
