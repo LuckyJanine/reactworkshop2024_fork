@@ -1,11 +1,25 @@
+import { useEffect, useState } from 'react';
 import './Filter.css'
 
 const Filter = (props) => {
+
+    const [filter, setFilter] = useState(props.filterMode);
+
+    const handleFilterChange = (event) => {
+        const newFilter = event.target.value;
+        setFilter(newFilter);
+        props.handleFilterModeChange(newFilter);
+    }
+
+    useEffect(() => {
+        setFilter(props.filterMode);
+    }, [props.filterMode]);
+
     return ( 
         <div className="filter--container">
             <div className="filter--section">
                 <label htmlFor="filter">Filter&nbsp;:</label>
-                <select id="filter" className="filter--dropdown" onChange={props.handleFilterChange}>
+                <select id="filter" value ={filter} className="filter--dropdown" onChange={handleFilterChange}>
                 <option value="none">None</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="lunchdinner">Lunch&nbsp;&#124;&nbsp;Dinner</option>

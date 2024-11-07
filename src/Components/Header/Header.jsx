@@ -17,8 +17,10 @@ const Header = (props) => {
     const excludeFood = props.excludeFood;
     const setExcludeFood = props.setExcludeFood;
     const excludeSearch = props.excludeSearch;
-    const handleSortChange = props.handleSortChange;
-    const handleFilterChange = props.handleFilterChange;
+    const handleSortOrderChange = props.handleSortOrderChange;
+    const handleFilterModeChange = props.handleFilterModeChange;
+    const sortOrder = props.sortOrder;
+    const filterMode = props.filterMode;
 
     const iconId = excludeSearch ? "arrow-down" : "arrow-right";
 
@@ -59,8 +61,8 @@ const Header = (props) => {
                     </form>
 
                     <div className="sort-filter-container">
-                        <Sort handleSortChange = {handleSortChange}/>
-                        <Filter handleFilterChange = {handleFilterChange}/>
+                        <Sort sortOrder = {sortOrder} handleSortOrderChange = {handleSortOrderChange}/>
+                        <Filter filterMode = {filterMode} handleFilterModeChange = {handleFilterModeChange}/>
                     </div>
                 </div>
 

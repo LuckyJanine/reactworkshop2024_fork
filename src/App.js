@@ -38,6 +38,10 @@ function App() {
 
   const [cardView, setCardView] = useState(true); 
 
+  const [sortOrder, setSortOrder] = useState("default");
+  const [filterMode, setFilterMode] = useState("none");
+
+  
   // const [formData, setFormData] = useState(
   //   {
   //     firstName: "",
@@ -160,6 +164,10 @@ function App() {
     // ?? vallina js put everything into query string
     setRecipeSearch(recipeSearch);
     setExcludeFood(excludeFood);
+
+    setSortOrder("default");
+    setFilterMode("none");
+
     getRecipesFunction();
   };
 
@@ -194,15 +202,16 @@ function App() {
     setExcludeSearch(prevSearchMode => !prevSearchMode);
   }
 
-  const handleSortChange = (event) => {
+  
+  const handleSortOrderChange = (newSort) => {
 
-    const sort = event.target.value;
+    setSortOrder(newSort);
 
     let sortedRecipes = [...foodRecipes];
-
+    
     // console.log(sort);
 
-    switch (sort) {
+    switch (newSort) {
       case "caloriesLow":
         sortedRecipes.sort((a, b) => a.recipe.calories - b.recipe.calories);
         break;
@@ -216,14 +225,28 @@ function App() {
     setFoodRecipes(sortedRecipes);
   }
 
-  const handleFilterChange = (event) => {
+  const reorder = (recipes, sort) => {
+    switch(sort){
+      case "caloriesLow":
+        recipes.sort((a, b) => a.recipe.calories - b.recipe.calories);
+        break;
+      case "ingredientsLess":
+        recipes.sort((a, b) => a.numOfIngredients - b.numOfIngredients);
+        break;
+      default:
+        recipes.sort((a, b) => a.index - b.index);
+        break;
+    }
+  }
 
-    const filtermode = event.target.value;
+  const handleFilterModeChange = (newFilter) => {
+
+    setFilterMode(newFilter);
 
     let filteredRecipes = [...defaultFoodRecipes];
     // console.log(filteredRecipes);
 
-    switch(filtermode){
+    switch(filterMode){
       case "breakfast":
         filteredRecipes = filteredRecipes.filter(recipe => recipe.recipe.mealType.includes("breakfast"));
         break;
@@ -239,6 +262,7 @@ function App() {
       default:
         break; 
     }
+    reorder(filteredRecipes, sortOrder);
     setFoodRecipes(filteredRecipes);
     // console.log(filteredRecipes);
   }
@@ -257,8 +281,10 @@ function App() {
         excludeFood = {excludeFood}
         setExcludeFood = {setExcludeFood}
         excludeSearch = {excludeSearch}
-        handleSortChange = {handleSortChange}
-        handleFilterChange = {handleFilterChange}
+        sortOrder = {sortOrder}
+        filterMode = {filterMode}
+        handleSortOrderChange = {handleSortOrderChange}
+        handleFilterModeChange = {handleFilterModeChange}
       />
       
       { landing && landingPage } 
