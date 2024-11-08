@@ -246,7 +246,7 @@ function App() {
     let filteredRecipes = [...defaultFoodRecipes];
     // console.log(filteredRecipes);
 
-    switch(filterMode){
+    switch(newFilter){
       case "breakfast":
         filteredRecipes = filteredRecipes.filter(recipe => recipe.recipe.mealType.includes("breakfast"));
         break;
