@@ -1,5 +1,6 @@
 import { useEffect, useState} from 'react';
 import './Sort.css';
+import './Header.css';
 
 // ?? only enable when recipes has element 
 
@@ -21,7 +22,12 @@ const Sort = (props) => {
         <div className="sort--container">
             <div className="sort--section">
             <label htmlFor="sort">Sort by&nbsp;:</label>
-            <select id="sort" value={sort} className="sort--dropdown" onChange={handleSortChange}>
+            <select disabled={props.isLanding} 
+                    id="sort" 
+                    value={sort} 
+                    className="sort--dropdown" 
+                    onChange={handleSortChange}
+            >
                 <option value="default">Default</option>
                 <option value="caloriesLow">Calories: Low to High</option>
                 <option value="ingredientsLess">Ingredients: Less to More</option>

@@ -285,6 +285,7 @@ function App() {
         filterMode = {filterMode}
         handleSortOrderChange = {handleSortOrderChange}
         handleFilterModeChange = {handleFilterModeChange}
+        isLanding = {landing}
       />
       
       { landing && landingPage } 

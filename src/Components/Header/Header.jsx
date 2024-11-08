@@ -61,8 +61,16 @@ const Header = (props) => {
                     </form>
 
                     <div className="sort-filter-container">
-                        <Sort sortOrder = {sortOrder} handleSortOrderChange = {handleSortOrderChange}/>
-                        <Filter filterMode = {filterMode} handleFilterModeChange = {handleFilterModeChange}/>
+                        <Sort 
+                            isLanding = {props.isLanding}
+                            sortOrder = {sortOrder} 
+                            handleSortOrderChange = {handleSortOrderChange}
+                        />
+                        <Filter 
+                            isLanding = {props.isLanding}
+                            filterMode = {filterMode} 
+                            handleFilterModeChange = {handleFilterModeChange}
+                        />
                     </div>
                 </div>
 
